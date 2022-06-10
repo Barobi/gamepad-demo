@@ -1,5 +1,5 @@
 {
-    "name": "gamepad-demo",
+    "name": "Motor",
     "description": "",
     "dependencies": {
         "core": "*",
