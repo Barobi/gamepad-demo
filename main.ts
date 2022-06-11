@@ -4,8 +4,10 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
         led.stopAnimation()
         if (control.eventValue() == 1) {
             basic.showString("A")
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, 255)
         } else if (control.eventValue() == 3) {
             basic.showString("B")
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, 255)
         } else if (control.eventValue() == 5) {
             basic.showString("C")
         } else if (control.eventValue() == 7) {
