@@ -33,14 +33,14 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             motor.motorStopAll()
         } else if (control.eventValue() == 13) {
             basic.showString("3")
-            motor.motorStop(motor.Motors.M2)
-            basic.pause(200)
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, speed)
-        } else if (control.eventValue() == 15) {
-            basic.showString("4")
             motor.motorStop(motor.Motors.M1)
             basic.pause(200)
             motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, speed)
+        } else if (control.eventValue() == 15) {
+            basic.showString("4")
+            motor.motorStop(motor.Motors.M2)
+            basic.pause(200)
+            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, speed)
         } else {
             basic.clearScreen()
         }
