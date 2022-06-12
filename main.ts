@@ -18,6 +18,8 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             basic.showString("C")
         } else if (control.eventValue() == 7) {
             basic.showString("D")
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, speed)
+            motor.MotorRun(motor.Motors.M2, motor.Dir.CW, speed)
         } else if (control.eventValue() == 9) {
             basic.showString("1")
             motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, speed)
