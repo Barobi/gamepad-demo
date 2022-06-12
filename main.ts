@@ -14,8 +14,6 @@ function a () {
 }
 function _3 () {
     motor.motorStop(motor.Motors.M2)
-    basic.pause(200)
-    motor.MotorRun(motor.Motors.M2, motor.Dir.CW, speed)
 }
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EVT_ANY, function () {
     if (lastValue != control.eventValue()) {
@@ -40,6 +38,10 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             motor.motorStopAll()
         } else if (control.eventValue() == 12) {
             motor.motorStopAll()
+        } else if (control.eventValue() == 14) {
+            motor.MotorRun(motor.Motors.M2, motor.Dir.CW, speed)
+        } else if (control.eventValue() == 16) {
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, speed)
         }
     }
 })
@@ -49,8 +51,6 @@ function d () {
 }
 function _4 () {
     motor.motorStop(motor.Motors.M1)
-    basic.pause(200)
-    motor.MotorRun(motor.Motors.M1, motor.Dir.CW, speed)
 }
 function _1 () {
     motor.MotorRun(motor.Motors.M1, motor.Dir.CW, speed)
