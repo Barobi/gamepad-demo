@@ -59,4 +59,4 @@ function _1 () {
 let speed = 0
 let lastValue = 0
 lastValue = 0
-speed = 96
+speed = 192
