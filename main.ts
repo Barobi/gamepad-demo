@@ -20,25 +20,27 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             basic.showString("D")
         } else if (control.eventValue() == 9) {
             basic.showString("1")
-            motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, 255)
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, 255)
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, speed)
+            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, speed)
         } else if (control.eventValue() == 11) {
             basic.showString("2")
             motor.motorStopAll()
         } else if (control.eventValue() == 13) {
             basic.showString("3")
-            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, 255)
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, 255)
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, speed)
+            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, speed)
         } else if (control.eventValue() == 15) {
             basic.showString("4")
-            motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, 255)
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CW, 255)
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, speed)
+            motor.MotorRun(motor.Motors.M2, motor.Dir.CW, speed)
         } else {
             basic.clearScreen()
         }
     }
 })
+let speed = 0
 let lastValue = 0
 lastValue = 0
+speed = 128
 bluetooth.startLEDService()
 basic.showString("GAMEPAD DEMO")
