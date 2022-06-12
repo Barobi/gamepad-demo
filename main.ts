@@ -34,9 +34,9 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             _3()
         } else if (control.eventValue() == 15) {
             _4()
-        } else if (control.eventValue() == 10) {
+        } else if (control.eventValue() == 10 || control.eventValue() == 6) {
             motor.motorStopAll()
-        } else if (control.eventValue() == 12) {
+        } else if (control.eventValue() == 12 || control.eventValue() == 8) {
             motor.motorStopAll()
         } else if (control.eventValue() == 14) {
             motor.MotorRun(motor.Motors.M2, motor.Dir.CW, speed)
