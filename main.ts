@@ -20,19 +20,19 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             basic.showString("D")
         } else if (control.eventValue() == 9) {
             basic.showString("1")
-            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, 255)
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CW, 255)
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, 255)
+            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, 255)
         } else if (control.eventValue() == 11) {
             basic.showString("2")
             motor.motorStopAll()
         } else if (control.eventValue() == 13) {
             basic.showString("3")
-            motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, 255)
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CW, 255)
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, 255)
+            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, 255)
         } else if (control.eventValue() == 15) {
             basic.showString("4")
-            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, 0)
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, 0)
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, 255)
+            motor.MotorRun(motor.Motors.M2, motor.Dir.CW, 255)
         } else {
             basic.clearScreen()
         }
