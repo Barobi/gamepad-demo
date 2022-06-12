@@ -7,10 +7,10 @@ function _2 () {
     motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, speed)
 }
 function b () {
-    motor.motorStopAll()
+    speed += -16
 }
 function a () {
-    motor.motorStopAll()
+    speed += 16
 }
 function _3 () {
     motor.motorStop(motor.Motors.M2)
@@ -36,6 +36,10 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             _3()
         } else if (control.eventValue() == 15) {
             _4()
+        } else if (control.eventValue() == 10) {
+            motor.motorStopAll()
+        } else if (control.eventValue() == 12) {
+            motor.motorStopAll()
         }
     }
 })
