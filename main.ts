@@ -18,8 +18,12 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             motor.MotorRun(motor.Motors.M2, motor.Dir.CW, speed)
         } else if (control.eventValue() == 5) {
             basic.showString("C")
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, speed)
+            motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, speed)
         } else if (control.eventValue() == 7) {
             basic.showString("D")
+            motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, speed)
+            motor.MotorRun(motor.Motors.M2, motor.Dir.CW, speed)
         } else if (control.eventValue() == 9) {
             basic.showString("1")
             motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, speed)
@@ -45,6 +49,6 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
 let speed = 0
 let lastValue = 0
 lastValue = 0
-speed = 128
+speed = 64
 bluetooth.startLEDService()
 basic.showString("GAMEPAD DEMO")
