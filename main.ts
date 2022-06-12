@@ -49,6 +49,6 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
 let speed = 0
 let lastValue = 0
 lastValue = 0
-speed = 64
+speed = 80
 bluetooth.startLEDService()
 basic.showString("GAMEPAD DEMO")
