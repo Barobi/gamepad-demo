@@ -1,62 +1,94 @@
-function c () {
-    motor.MotorRun(motor.Motors.M1, motor.Dir.CW, speed)
-    motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, speed)
-}
-function _2 () {
-    motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, speed)
-    motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, speed)
-}
-function b () {
-    speed += -16
-}
-function a () {
-    speed += 16
-}
-function _3 () {
+function _4_up () {
     motor.motorStop(motor.Motors.M2)
 }
+function c_down () {
+    motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, motorSpeed)
+}
+function c_up () {
+    motor.motorStop(motor.Motors.M1)
+}
+function _4_down () {
+    motor.MotorRun(motor.Motors.M2, motor.Dir.CW, motorSpeed)
+}
+function b_down () {
+    motorSpeed += -16
+}
+function b_up () {
+	
+}
+function _3_down () {
+    motor.MotorRun(motor.Motors.M1, motor.Dir.CW, motorSpeed)
+}
+function _1_down () {
+    motor.MotorRun(motor.Motors.M1, motor.Dir.CW, motorSpeed)
+    motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, motorSpeed)
+}
+function d_down () {
+    motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, motorSpeed)
+}
+function a_down () {
+    motorSpeed += 16
+}
+function _2_up () {
+    motor.motorStop(motor.Motors.M1)
+    motor.motorStop(motor.Motors.M2)
+}
+function _1_up () {
+    motor.motorStop(motor.Motors.M1)
+    motor.motorStop(motor.Motors.M2)
+}
+function d_up () {
+    motor.motorStop(motor.Motors.M2)
+}
+function _2_down () {
+    motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, motorSpeed)
+    motor.MotorRun(motor.Motors.M2, motor.Dir.CW, motorSpeed)
+}
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EVT_ANY, function () {
-    if (lastValue != control.eventValue()) {
-        lastValue = control.eventValue()
+    if (prevButtonEvent != control.eventValue()) {
+        prevButtonEvent = control.eventValue()
         if (control.eventValue() == 1) {
-            a()
+            a_down()
+        } else if (control.eventValue() == 2) {
+            a_up()
         } else if (control.eventValue() == 3) {
-            b()
+            b_down()
+        } else if (control.eventValue() == 4) {
+            b_up()
         } else if (control.eventValue() == 5) {
-            c()
+            c_down()
+        } else if (control.eventValue() == 6) {
+            c_up()
         } else if (control.eventValue() == 7) {
-            d()
+            d_down()
+        } else if (control.eventValue() == 8) {
+            d_up()
         } else if (control.eventValue() == 9) {
-            _1()
+            _1_down()
+        } else if (control.eventValue() == 10) {
+            _1_up()
         } else if (control.eventValue() == 11) {
-            _2()
+            _2_down()
+        } else if (control.eventValue() == 12) {
+            _2_up()
         } else if (control.eventValue() == 13) {
-            _3()
-        } else if (control.eventValue() == 15) {
-            _4()
-        } else if (control.eventValue() == 10 || control.eventValue() == 6) {
-            motor.motorStopAll()
-        } else if (control.eventValue() == 12 || control.eventValue() == 8) {
-            motor.motorStopAll()
+            _3_down()
         } else if (control.eventValue() == 14) {
-            motor.MotorRun(motor.Motors.M2, motor.Dir.CW, speed)
+            _3_up()
+        } else if (control.eventValue() == 15) {
+            _4_down()
         } else if (control.eventValue() == 16) {
-            motor.MotorRun(motor.Motors.M1, motor.Dir.CW, speed)
+            _4_up()
         }
     }
 })
-function d () {
-    motor.MotorRun(motor.Motors.M2, motor.Dir.CW, speed)
-    motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, speed)
-}
-function _4 () {
+function _3_up () {
     motor.motorStop(motor.Motors.M1)
 }
-function _1 () {
-    motor.MotorRun(motor.Motors.M1, motor.Dir.CW, speed)
-    motor.MotorRun(motor.Motors.M2, motor.Dir.CW, speed)
+function a_up () {
+	
 }
-let speed = 0
-let lastValue = 0
-lastValue = 0
-speed = 192
+let prevButtonEvent = 0
+let motorSpeed = 0
+motorSpeed = 192
+prevButtonEvent = 0
