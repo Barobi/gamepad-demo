@@ -1,48 +1,63 @@
 function _4_up () {
-    motor.motorStop(motor.Motors.M2)
-}
-function c_down () {
-    motor.MotorRun(motor.Motors.M1, motor.Dir.CW, motorSpeed)
-}
-function c_up () {
     motor.motorStop(motor.Motors.M1)
 }
-function _4_down () {
+function c_down () {
     motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, motorSpeed)
 }
+function c_up () {
+    motor.motorStop(motor.Motors.M2)
+}
+function _4_down () {
+    motor.MotorRun(motor.Motors.M1, motor.Dir.CW, motorSpeed)
+}
 function b_down () {
-    motorSpeed += -16
+    changeSpeed(-1)
 }
 function b_up () {
 	
 }
 function _3_down () {
-    motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, motorSpeed)
+    motor.MotorRun(motor.Motors.M2, motor.Dir.CW, motorSpeed)
 }
 function _1_down () {
-    motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, motorSpeed)
-    motor.MotorRun(motor.Motors.M2, motor.Dir.CW, motorSpeed)
+	
 }
 function d_down () {
-    motor.MotorRun(motor.Motors.M2, motor.Dir.CW, motorSpeed)
+    motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, motorSpeed)
 }
 function a_down () {
-    motorSpeed += 16
+    changeSpeed(1)
+}
+function changeSpeed (delta: number) {
+    speed = Math.constrain(speed + delta, 0, 15)
+    if (speed <= 9) {
+        basic.showNumber(speed)
+    } else if (speed == 10) {
+        basic.showString("A")
+    } else if (speed == 11) {
+        basic.showString("B")
+    } else if (speed == 12) {
+        basic.showString("C")
+    } else if (speed == 13) {
+        basic.showString("D")
+    } else if (speed == 14) {
+        basic.showString("E")
+    } else if (speed == 15) {
+        basic.showString("F")
+    }
+    motorSpeed = Math.constrain((speed + 1) * 16, 0, 255)
 }
 function _2_up () {
-    motor.motorStop(motor.Motors.M1)
-    motor.motorStop(motor.Motors.M2)
+	
 }
 function _1_up () {
-    motor.motorStop(motor.Motors.M1)
-    motor.motorStop(motor.Motors.M2)
+	
 }
 function d_up () {
-    motor.motorStop(motor.Motors.M2)
+    motor.motorStop(motor.Motors.M1)
 }
 function _2_down () {
-    motor.MotorRun(motor.Motors.M1, motor.Dir.CW, motorSpeed)
-    motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, motorSpeed)
+	
 }
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EVT_ANY, function () {
     if (prevButtonEvent != control.eventValue()) {
@@ -83,12 +98,14 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
     }
 })
 function _3_up () {
-    motor.motorStop(motor.Motors.M1)
+    motor.motorStop(motor.Motors.M2)
 }
 function a_up () {
 	
 }
-let prevButtonEvent = 0
 let motorSpeed = 0
-motorSpeed = 192
+let speed = 0
+let prevButtonEvent = 0
 prevButtonEvent = 0
+speed = 11
+changeSpeed(0)
